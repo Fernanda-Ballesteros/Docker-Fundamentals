@@ -13,8 +13,13 @@ jobs:
       - name: Login to Docker Hub o cualquie 
         run: docker login -u "${{secrets.DOCKER_USERNAME}}" -p "${{secrets.DOCKER_PASSWORD}}"
 
-      - name: Construir imagen
-        run: docker build -t fernandaballesteros/docker-fundamentals:v2 .
+      - name: Construir imagen con commit
+        run: docker build -t fernandaballesteros/docker-fundamentals:${{ github.sha }} .
+      #Crear copia de imagen pero con tag
+      - name: Renonmbrar imagen con commit
+        run: docker tag fernandaballesteros/docker-fundamentals:${{ github.sha }} fernandaballesteros/docker-fundamentals:latest
 
       - name: Publicar imagen
-        run: docker push fernandaballesteros/docker-fundamentals:v2
+        run: |
+          docker push fernandaballesteros/docker-fundamentals:${{ github.sha }} 
+          docker push fernandaballesteros/docker-fundamentals:latest
