@@ -1,0 +1,20 @@
+name: Docker Build & Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone My Repository
+        uses: actions/checkout@v2
+        #Ir al repositorio de git, settigns, secrets, add 
+      - name: Login to Docker Hub o cualquie 
+        run: docker login -u "${{secrets.DOCKER_USERNAME}}" -p "${{secrets.DOCKER_PASSWORD}}"
+
+      - name: Construir imagen
+        run: docker build -t fernandaballesteros/docker-fundamentals:v2 .
+
+      - name: Publicar imagen
+        run: docker push fernandaballesteros/docker-fundamentals:v2

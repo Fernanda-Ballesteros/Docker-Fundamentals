@@ -10,6 +10,10 @@ app.listen(port, () => {
     console.log(`Servidor escuchadon en el puerto ${port}`);
 });
 
+app.get('hello', (req, res) => {
+    res.send('Hello!');
+});
+
 //Levantar el servidor
 //node index.js
 

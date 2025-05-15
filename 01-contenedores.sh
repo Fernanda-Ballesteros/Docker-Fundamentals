@@ -108,7 +108,6 @@ docker login -u <usuario> -p <password>
 docker login -u fernandaballesteros -p 123456789
 
 #1. Se crea la apliacion
-
 #2. Se crea el dockerfile
 #3. Se crea la imagen
 docker build -t <nombre_imagen>:<version> .
