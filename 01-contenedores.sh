@@ -120,3 +120,10 @@ docker push fernandaballesteros/docker-fundamnetals:v1
 
 #Iniciar repositorio
 git init
+
+git add .
+git commit -m "Primer commit"
+
+#MATCH
+git remote add origin <url_repositorio>
+git push origin main
